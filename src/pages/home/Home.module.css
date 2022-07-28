@@ -1,0 +1,28 @@
+.home-section {
+  margin-top: 1.4rem;
+}
+.header-section {
+  display: flex;
+  gap: 0.8rem;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+
+  border: 3px solid #555;
+  border-radius: 50%;
+  padding: 0.4rem;
+}
+.hamburger {
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+  /* padding: 2rem; */
+}
+
+.header-section {
+  margin-bottom: 9.6rem;
+}

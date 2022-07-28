@@ -1,0 +1,47 @@
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* display: grid;
+  place-items: center; */
+  min-height: 100vh;
+  /* min-width: 100vw; */
+  /* background-color: greenyellow; */
+  flex-direction: column;
+}
+.music-img-box {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  margin-bottom: 4.2rem;
+}
+
+.music-img {
+  font-size: 12.8rem;
+  padding: 1.8rem;
+  color: linear-gradient(to right, #ec008c, #fc6767);
+}
+
+.app-title {
+  font-size: 3rem;
+  margin-bottom: 4.2rem;
+}
+
+.auth-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+
+.login-text {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.google-img {
+  height: 6.2rem;
+}

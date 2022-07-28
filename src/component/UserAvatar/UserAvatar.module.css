@@ -1,0 +1,19 @@
+.user-avatar-section {
+  margin-top: 2.4rem;
+}
+.user-avatar {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  padding: 1.6rem;
+  width: min-content;
+  margin-bottom: 1.2rem;
+}
+.user-img {
+  height: 6.4rem;
+  width: 6.4rem;
+}
+.userName {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.5;
+}

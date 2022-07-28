@@ -1,0 +1,71 @@
+.play-section {
+  text-align: center;
+}
+
+.album-title {
+  font-weight: 700;
+  font-size: 5.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.song-title {
+  font-weight: 500;
+  line-height: 1.5;
+  font-size: 2.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.song-length {
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.song-current-time {
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.play-next-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-direction: row;
+  margin-bottom: 1.6rem;
+}
+
+.caret-left {
+  font-size: 3.6rem;
+}
+
+.plat-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7.4rem;
+  width: 7.4rem;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: black;
+}
+
+.Play-icon {
+  height: 3.6rem;
+  width: 3.6rem;
+}
+
+.Play-icon path {
+  fill: #fff;
+  stroke: #fff;
+}
+.caret-right {
+  font-size: 3.6rem;
+}
+.heart-icon {
+  font-size: 6.4rem;
+}
+.heart-icon path {
+  fill: red;
+  stroke: red;
+}

@@ -1,0 +1,42 @@
+.search-result {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 0.4rem;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+}
+.album-name {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+.song-name {
+  margin-bottom: 0.4rem;
+  font-size: 1.4rem;
+}
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heart-icon {
+  height: 3.6rem;
+  width: 3.6rem;
+}
+.heart-icon path {
+  fill: red;
+  stroke: red;
+}
+.Play-icon {
+  height: 3rem;
+  width: 3rem;
+  background-color: #000;
+  border-radius: 50%;
+  padding: 0.6rem;
+}
+.Play-icon path {
+  fill: #fff;
+  stroke: #fff;
+}
