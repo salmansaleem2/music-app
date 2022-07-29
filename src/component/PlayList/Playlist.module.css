@@ -15,6 +15,7 @@
 .remove-song {
   height: 2rem;
   width: 2rem;
+  cursor: pointer;
 }
 .song-name {
   margin-bottom: 0.4rem;

@@ -1,19 +1,42 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import SearchList from "./component/SearchList/SearchList";
+import { firebase } from "./firebase/config";
 
 function App() {
-  return (
-    <div className="container">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+  const [isUserSignedIn, setIsUserSignIn] = useState(false);
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      const { displayName, photoURL } = user;
+      // console.log(displayName);
+      // setIsUserSignIn(displayName);
+      return setIsUserSignIn(true);
+    }
+    setIsUserSignIn(false);
+  });
+  if (isUserSignedIn) {
+    return (
+      <div className="container">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    );
+  } else {
+    return (
+      <div className="container">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;

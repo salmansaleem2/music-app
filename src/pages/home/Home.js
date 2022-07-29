@@ -28,10 +28,11 @@ const Home = () => {
         </button>
       </div>
       <Player />
-      <div className={styles["sidebar"]}>
+
+      <div className={`${isOpen ? styles["sidebar"] : null}`}>
         {isOpen && <Overlay handleOverlay={handleOverlay} />}
         {isOpen && <UserAvatar />}
-        {isOpen && <h1>Favourite List</h1>}
+        {isOpen && <h1 style={{ marginBottom: "1.2rem" }}>Favourite List</h1>}
         {isOpen && <Playlist />}
       </div>
     </div>

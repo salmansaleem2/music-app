@@ -1,15 +1,18 @@
 .user-avatar-section {
   margin-top: 2.4rem;
-  background-color: greenyellow;
+  /* background-color: greenyellow; */
 }
 .user-avatar {
   border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 50%;
-  padding: 1.6rem;
+  /* padding: 1.6rem; */
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
-  margin-bottom: 1.2rem;
+  margin: 0 auto 1.2rem;
+  overflow: hidden;
+  height: 15rem;
+  width: 15rem;
 }
 .user-img {
   height: 6.4rem;
@@ -19,4 +22,16 @@
   font-size: 1.8rem;
   font-weight: 500;
   line-height: 1.5;
+  /* margin-bottom: 0.4rem; */
+}
+
+.signout {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  border: none;
+  background-color: transparent;
+  color: #555;
+  cursor: pointer;
 }

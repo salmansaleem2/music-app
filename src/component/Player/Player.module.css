@@ -33,6 +33,27 @@
   flex-direction: row;
   margin-bottom: 1.6rem;
 }
+/* Tracker */
+
+.rangeInput[type="range"] {
+  -webkit-appearance: none;
+  background-color: #555;
+  height: 0.3rem;
+
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+  cursor: pointer;
+}
+
+.rangeInput[type="range"]::-webkit-slider-thumb {
+  width: 12px;
+  -webkit-appearance: none;
+  height: 12px;
+  background: #555;
+  border-radius: 50%;
+}
+
+/* ********************* */
 
 .caret-left {
   font-size: 3.6rem;
@@ -48,6 +69,7 @@
   outline: none;
   border: none;
   background-color: black;
+  cursor: pointer;
 }
 
 .Play-icon {
@@ -61,6 +83,7 @@
 }
 .caret-right {
   font-size: 3.6rem;
+  cursor: pointer;
 }
 .heart-icon {
   font-size: 6.4rem;
