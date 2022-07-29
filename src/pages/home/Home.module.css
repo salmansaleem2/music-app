@@ -26,3 +26,12 @@
 .header-section {
   margin-bottom: 9.6rem;
 }
+
+.sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: red;
+  z-index: 222222 !important;
+}

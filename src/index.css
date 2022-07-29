@@ -63,6 +63,7 @@ body {
 
   /* Only works if there is nothing absolutely positioned in relation to body */
   overflow-x: hidden;
+  position: relative;
 }
 /*****************************/
 /* GENERAL REUSEABLE COMPONENT*/

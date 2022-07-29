@@ -4,15 +4,20 @@ import Search from "../../component/Search/Search";
 import Player from "../../component/Player/Player";
 import Overlay from "../../component/Overlay/Overlay";
 import UserAvatar from "../../component/UserAvatar/UserAvatar";
+import Playlist from "../../component/PlayList/Playlist";
 
 import { List } from "phosphor-react";
 
 import styles from "./Home.module.css";
+import SearchList from "../../component/SearchList/SearchList";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleToggle = () => {
-    console.log(setIsOpen(!isOpen));
+    setIsOpen(!isOpen);
+  };
+  const handleOverlay = () => {
+    setIsOpen(!isOpen);
   };
   return (
     <div className={styles["home-section"]}>
@@ -23,8 +28,12 @@ const Home = () => {
         </button>
       </div>
       <Player />
-      {isOpen && Overlay}
-      {isOpen && UserAvatar}
+      <div className={styles["sidebar"]}>
+        {isOpen && <Overlay handleOverlay={handleOverlay} />}
+        {isOpen && <UserAvatar />}
+        {isOpen && <h1>Favourite List</h1>}
+        {isOpen && <Playlist />}
+      </div>
     </div>
   );
 };
