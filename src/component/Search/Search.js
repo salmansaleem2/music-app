@@ -1,51 +1,78 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MagnifyingGlass } from "phosphor-react";
+// import { MusicContext } from "../../context/MusicContext";
+// import { keys } from "../../../.env";
+import context from "../../hooks/useMusic";
 
 import styles from "./Search.module.css";
+import { useFetch } from "../../hooks/useFetch";
 
 const Search = () => {
-  const token = "58037c60e9cd4e30b35cbd0eb09d49e9";
-  const [searchKey, setSearchKey] = useState("");
-  const [artists, setArtists] = useState([]);
+  const { SearchResult } = context();
+  console.log("SearchResult", SearchResult);
+  // const { searchResult } = useMusic();
+  const USER_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+  const USER_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 
-  // const searchArtists = async (e) => {
-  //   e.preventDefault();
-  //   const { data } = await axios.get("https://api.spotify.com/v1/search", {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //     params: {
-  //       q: searchKey,
-  //       type: "artist",
-  //     },
-  //   });
-
-  //   setArtists(data.artists.items);
-  // };
-  axios("https://accounts.spotify.com/api/token", {
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      Authorization:
-        "Basic " + btoa(spotify.ClientId + ":" + spotify.ClientSecret),
-    },
-    data: "grant_type=client_credentials",
-    method: "POST",
+  // Search
+  const [search, setSearch] = useState("");
+  const [artistsData, setArtistsData] = useState([]);
+  const [token, setToken] = useState("");
+  const [genres, setGenres] = useState({
+    selectedGenre: "",
+    listOfGenresFromAPI: [],
   });
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  // };
+
+  const handleSearch = (e) => {
+    getSearchedData();
+    e.preventDefault();
+  };
+
+  // Api Request
+  useEffect(() => {
+    axios("https://accounts.spotify.com/api/token", {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: "Basic " + btoa(USER_ID + ":" + USER_SECRET),
+      },
+      data: "grant_type=client_credentials",
+      method: "POST",
+    }).then((tokenResponse) => {
+      setToken(tokenResponse.data.access_token);
+    });
+  }, []);
+
+  const getSearchedData = () => {
+    axios(`https://api.spotify.com/v1/search?q=${search}&type=track`, {
+      method: "GET",
+      headers: { Authorization: "Bearer " + token },
+    }).then((genreResponse) => {
+      SearchResult(genreResponse);
+      // setArtistsData(genreResponse);
+      setSearch("");
+      // setGenres({
+      //   selectedGenre: genres.selectedGenre,
+      //   listOfGenresFromAPI: genreResponse.data.categories.items,
+      // });
+    });
+  };
+  // onSubmit={handleSubmit}
   return (
-    <form
-      onSubmit={searchArtists}
-      style={{ width: "100%", display: "flex", justifyContent: "center" }}
-    >
+    <form style={{ width: "100%", display: "flex", justifyContent: "center" }}>
       <div className={styles["search-container"]}>
         <input
           type="text"
           placeholder="Search"
           className={styles.search}
           onChange={(e) => {
-            setSearchKey(e.target.value);
+            setSearch(e.target.value);
           }}
+          value={search}
         />
         <button
           type={"submit"}
@@ -56,7 +83,7 @@ const Search = () => {
             cursor: "pointer",
           }}
         >
-          <MagnifyingGlass size={16} />
+          <MagnifyingGlass onClick={handleSearch} size={16} />
         </button>
       </div>
     </form>

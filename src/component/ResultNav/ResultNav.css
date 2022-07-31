@@ -1,0 +1,44 @@
+.main-nav {
+  /* opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateX(0%); */
+
+  /* transform: translateX(100%); */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in; */
+  /* display: none; */
+  /* opacity: 0;
+  pointer-events: none;
+  visibility: hidden; */
+
+  /*  */
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  transition: all 0.5s ease-in;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #fff;
+}
+.nav-open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0%);
+}
+.show-result {
+  padding: 2rem;
+}
+
+.header-margin {
+  margin-bottom: 0 !important;
+}

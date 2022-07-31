@@ -1,17 +1,20 @@
 import { useState } from "react";
-
+import axios from "axios";
 import Search from "../../component/Search/Search";
 import Player from "../../component/Player/Player";
 import Overlay from "../../component/Overlay/Overlay";
 import UserAvatar from "../../component/UserAvatar/UserAvatar";
 import Playlist from "../../component/PlayList/Playlist";
-
-import { List } from "phosphor-react";
+import useMusic from "../../hooks/useMusic";
+import ResultNav from "../../component/ResultNav/ResultNav";
+import Header from "../../component/Header/Header";
 
 import styles from "./Home.module.css";
 import SearchList from "../../component/SearchList/SearchList";
 
 const Home = () => {
+  const { searchRequest } = useMusic();
+  console.log("searchRequest", searchRequest);
   const [isOpen, setIsOpen] = useState(false);
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -19,14 +22,27 @@ const Home = () => {
   const handleOverlay = () => {
     setIsOpen(!isOpen);
   };
+  const handleSearchData = () => {};
   return (
     <div className={styles["home-section"]}>
-      <div className={styles["header-section"]}>
+      {/* <div className={styles["header-section"]}>
         <Search />
-        <button className={styles.button} onClick={handleToggle}>
-          <List className={styles["hamburger"]} />
+        <button className={styles.button}>
+          {false ? (
+            <List className={styles["hamburger"]} onClick={handleToggle} />
+          ) : (
+            <X
+              className={styles["hamburger"]}
+              onClick={handleSearchData}
+              size={32}
+            />
+          )}
         </button>
-      </div>
+      </div> */}
+
+      <Header handleToggle={handleToggle} handleSearchData={handleSearchData} />
+
+      <ResultNav />
       <Player />
 
       <div className={`${isOpen ? styles["sidebar"] : null}`}>
