@@ -10,6 +10,9 @@ const MusicReducer = (state, action) => {
       return { ...state, searchData: action.payload };
     case "SEARCH_ICON_CLICK":
       return { ...state, IsSearchClick: action.payload };
+    case "CURRENT_TRACK":
+      return { ...state, currentAudio: action.payload };
+
     default:
       return state;
   }
@@ -21,6 +24,7 @@ export function MusicProvider({ children }) {
     searchRequest: "false",
     IsSearchClick: false,
     searchData: [],
+    currentAudio: {},
   });
 
   const searchRequest = () => {
@@ -32,10 +36,19 @@ export function MusicProvider({ children }) {
   const SearchIconClick = (status) => {
     dispatch({ type: "SEARCH_ICON_CLICK", payload: status });
   };
+  const currentTrack = (track) => {
+    dispatch({ type: "CURRENT_TRACK", payload: track });
+  };
 
   return (
     <MusicContext.Provider
-      value={{ ...state, searchRequest, SearchResult, SearchIconClick }}
+      value={{
+        ...state,
+        searchRequest,
+        SearchResult,
+        SearchIconClick,
+        currentTrack,
+      }}
     >
       {children}
     </MusicContext.Provider>

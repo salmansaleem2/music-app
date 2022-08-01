@@ -16,25 +16,33 @@ const AddToFavoutire = () => {
   const [timeStamp, setTimeStamp] = useState(9462);
   const [isFavourite, setIsFavourite] = useState(false);
   const [song, setSong] = useState({ hour: "00", minutes: "00", second: "00" });
-  const { searchData, IsSearchClick, SearchIconClick } = context();
+  const {
+    searchData,
+    IsSearchClick,
+    SearchIconClick,
+
+    currentTrack,
+    currentAudio,
+  } = context();
+  // console.log("track", track);
+  // console.log("track", currentTrack);
 
   const href = searchData?.data?.tracks;
   const itemss = href?.items;
-  console.log("itemssRES", itemss);
-  // console.log(itemss.previewUrl);
+  // console.log("itemssRES", itemss);
 
   useEffect(() => {
     setIsDataShow(true);
   }, [SearchIconClick]);
 
   const handleSong = (e) => {
-    console.log("abcs", e);
+    currentTrack(e);
   };
 
   const handlePlaySong = (e) => {
     const audio = new Audio(e);
     audio.play();
-    console.log(audio);
+    SearchIconClick(false);
   };
   // useEffect(() => {
   //   const timeStamp2 = (e) => {
@@ -82,7 +90,7 @@ const AddToFavoutire = () => {
                     <div className={styles["action-btn"]}>
                       <button
                         className={styles["plat-btn"]}
-                        // onClick={(e) => handleSong(e.target.value)}
+                        onClick={(e) => handleSong(items)}
                       >
                         <Play
                           className={styles["Play-icon"]}

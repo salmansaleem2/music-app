@@ -81,14 +81,34 @@
   fill: #fff;
   stroke: #fff;
 }
+.Pause-icon {
+  height: 3.6rem;
+  width: 3.6rem;
+}
+
+.Pause-icon rect {
+  stroke: #fff;
+  color: #fff;
+}
 .caret-right {
   font-size: 3.6rem;
   cursor: pointer;
 }
 .heart-icon {
   font-size: 6.4rem;
+  cursor: pointer;
 }
 .heart-icon path {
   fill: red;
+  stroke: red;
+}
+.heart-icon-favourite {
+  font-size: 6.4rem;
+  cursor: pointer;
+}
+.heart-icon-favourite path {
+  /* fill: #fff;
+  stroke: #fff; */
+  /* fill: red; */
   stroke: red;
 }

@@ -34,6 +34,7 @@
   pointer-events: auto;
   visibility: visible;
   transform: translateY(0%);
+  overflow-y: scroll;
 }
 .show-result {
   padding: 2rem;
