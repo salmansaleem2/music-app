@@ -1,3 +1,7 @@
+.favourite-list-section {
+  overflow-y: scroll !important;
+  margin-bottom: 10px !important;
+}
 .favourite-list {
   border: 1px solid rgba(0, 0, 0, 0.4);
   padding: 0.4rem;

@@ -1,36 +1,27 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { MagnifyingGlass } from "phosphor-react";
-// import { MusicContext } from "../../context/MusicContext";
-// import { keys } from "../../../.env";
 import context from "../../hooks/useMusic";
 
 import styles from "./Search.module.css";
-import { useFetch } from "../../hooks/useFetch";
 
 const Search = () => {
-  const { SearchResult } = context();
-  console.log("SearchResult", SearchResult);
-  // const { searchResult } = useMusic();
+  const { searchData, SearchResult, IsSearchClick, SearchIconClick } =
+    context();
+
   const USER_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
   const USER_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 
   // Search
   const [search, setSearch] = useState("");
-  const [artistsData, setArtistsData] = useState([]);
   const [token, setToken] = useState("");
-  const [genres, setGenres] = useState({
-    selectedGenre: "",
-    listOfGenresFromAPI: [],
-  });
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  // };
 
   const handleSearch = (e) => {
+    SearchIconClick(true);
+
     getSearchedData();
     e.preventDefault();
+    console.log("searchData", searchData);
   };
 
   // Api Request
@@ -51,17 +42,11 @@ const Search = () => {
     axios(`https://api.spotify.com/v1/search?q=${search}&type=track`, {
       method: "GET",
       headers: { Authorization: "Bearer " + token },
-    }).then((genreResponse) => {
-      SearchResult(genreResponse);
-      // setArtistsData(genreResponse);
+    }).then((response) => {
+      SearchResult(response);
       setSearch("");
-      // setGenres({
-      //   selectedGenre: genres.selectedGenre,
-      //   listOfGenresFromAPI: genreResponse.data.categories.items,
-      // });
     });
   };
-  // onSubmit={handleSubmit}
   return (
     <form style={{ width: "100%", display: "flex", justifyContent: "center" }}>
       <div className={styles["search-container"]}>

@@ -1,0 +1,136 @@
+.favourite-list-section {
+  overflow-y: scroll !important;
+  margin-bottom: 10px !important;
+}
+.favourite-list {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 0.4rem;
+  border-radius: 5px;
+}
+.album-title {
+  font-size: 1.6rem;
+}
+.album-detail {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+.remove-song {
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+}
+.song-name {
+  margin-bottom: 0.4rem;
+  font-size: 1.4rem;
+}
+.song-durtaion {
+  margin-bottom: 0.4rem;
+  font-size: 1.2rem;
+}
+/* *************** */
+.play-section {
+  text-align: center;
+}
+
+.album-title {
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.song-title {
+  font-weight: 500;
+  line-height: 1.5;
+  font-size: 2.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.song-length {
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.song-current-time {
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.play-next-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-direction: row;
+  margin-bottom: 1.6rem;
+}
+/* Tracker */
+
+.rangeInput[type="range"] {
+  -webkit-appearance: none;
+  background-color: #555;
+  height: 0.3rem;
+
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+  cursor: pointer;
+}
+
+.rangeInput[type="range"]::-webkit-slider-thumb {
+  width: 12px;
+  -webkit-appearance: none;
+  height: 12px;
+  background: #555;
+  border-radius: 50%;
+}
+
+/* ********************* */
+
+.caret-left {
+  font-size: 3.6rem;
+}
+
+.plat-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: black;
+  cursor: pointer;
+}
+
+.Play-icon {
+  height: 3.6rem;
+  width: 3.6rem;
+}
+
+.Play-icon path {
+  fill: #fff;
+  stroke: #fff;
+}
+.caret-right {
+  font-size: 3.6rem;
+  cursor: pointer;
+}
+.heart-icon {
+  font-size: 5.8rem;
+}
+.heart-icon path {
+  fill: red;
+  stroke: red;
+}
+
+.songs-list {
+  display: flex;
+  justify-content: space-between;
+}
+.action-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

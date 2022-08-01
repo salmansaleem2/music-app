@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Play, Pause, CaretRight, CaretLeft, Heart } from "phosphor-react";
+import context from "../../hooks/useMusic";
 import styles from "./Player.module.css";
 
 const Player = () => {

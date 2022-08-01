@@ -11,10 +11,10 @@ import Header from "../../component/Header/Header";
 
 import styles from "./Home.module.css";
 import SearchList from "../../component/SearchList/SearchList";
+import context from "../../hooks/useMusic";
 
 const Home = () => {
-  const { searchRequest } = useMusic();
-  console.log("searchRequest", searchRequest);
+  const { SearchIconClick } = context();
   const [isOpen, setIsOpen] = useState(false);
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -22,25 +22,10 @@ const Home = () => {
   const handleOverlay = () => {
     setIsOpen(!isOpen);
   };
-  const handleSearchData = () => {};
+
   return (
     <div className={styles["home-section"]}>
-      {/* <div className={styles["header-section"]}>
-        <Search />
-        <button className={styles.button}>
-          {false ? (
-            <List className={styles["hamburger"]} onClick={handleToggle} />
-          ) : (
-            <X
-              className={styles["hamburger"]}
-              onClick={handleSearchData}
-              size={32}
-            />
-          )}
-        </button>
-      </div> */}
-
-      <Header handleToggle={handleToggle} handleSearchData={handleSearchData} />
+      <Header handleToggle={handleToggle} />
 
       <ResultNav />
       <Player />
