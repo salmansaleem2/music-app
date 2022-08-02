@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useMemo, useRef } from "react";
+import Audio from "ts-audio";
 import { Play, Pause, CaretRight, CaretLeft, Heart } from "phosphor-react";
 
 import context from "../../hooks/useMusic";
@@ -9,10 +10,20 @@ const Player = () => {
   const [play, setPlay] = useState(true);
   const [favourite, setIsFavourite] = useState(false);
 
-  const handlePlayandPause = () => {
-    console.log(currentAudio, "currentAudiocurrentAudiocurrentAudio");
-    setPlay(!play);
+  const audio = Audio({
+    file: currentAudio?.preview_url,
+  });
+
+  const startAudio = () => {
+    audio.play();
+    setPlay(false);
   };
+
+  const pauseAudio = () => {
+    audio.pause();
+    setPlay(true);
+  };
+
   console.log(currentAudio);
   return (
     <div className={styles["play-section"]}>
@@ -33,11 +44,11 @@ const Player = () => {
       <p className={styles["song-current-time"]}>00:34</p>
       <div className={styles["play-next-section"]}>
         <CaretLeft className={styles["caret-left"]} />
-        <button className={styles["plat-btn"]} onClick={handlePlayandPause}>
+        <button className={styles["plat-btn"]}>
           {play ? (
-            <Play className={styles["Play-icon"]} />
+            <Play className={styles["Play-icon"]} onClick={startAudio} />
           ) : (
-            <Pause className={styles["Pause-icon"]} />
+            <Pause className={styles["Pause-icon"]} onClick={pauseAudio} />
           )}
           {/* <Pause className={styles["Pause-icon"]} /> */}
         </button>

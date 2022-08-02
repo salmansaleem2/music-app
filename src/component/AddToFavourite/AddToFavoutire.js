@@ -9,6 +9,7 @@ import {
 } from "phosphor-react";
 import { useEffect, useState } from "react";
 import context from "../../hooks/useMusic";
+import Audio from "ts-audio";
 import styles from "./AddToFavoutire.module.css";
 
 const AddToFavoutire = () => {
@@ -44,21 +45,6 @@ const AddToFavoutire = () => {
     audio.play();
     SearchIconClick(false);
   };
-  // useEffect(() => {
-  //   const timeStamp2 = (e) => {
-  //     var date = new Date(e * 1000);
-  //     // 2
-  //     var hours = new Date(e * 1000);
-
-  //     // 37
-  //     var minutes = "0" + date.getMinutes();
-
-  //     // 42
-  //     var seconds = "0" + date.getSeconds();
-  //     setSong({ hours, minutes, seconds });
-  //     console.log(e);
-  //   };
-  // }, [timeStamp2]);
 
   return (
     <>
